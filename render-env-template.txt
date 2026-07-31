@@ -1,0 +1,40 @@
+# ── Neon Database Configuration ──
+SPRING_DATASOURCE_URL=jdbc:postgresql://ep-silent-resonance-ay6fg7wc-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+SPRING_DATASOURCE_USERNAME=neondb_owner
+SPRING_DATASOURCE_PASSWORD=npg_QOPFqMecnf39
+
+# ── Application Endpoints ──
+BASE_URL=https://afrorealityapi.onrender.com
+FRONTEND_URL=https://afroreality.com
+
+# ── JWT Security Configurations ──
+JWT_SECRET=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+
+# ── Basic Authentication Panel ──
+SPRING_SECURITY_USER_NAME=admin
+SPRING_SECURITY_USER_PASSWORD=admin123
+
+# ── OAuth2 Client Authentication (Google/Microsoft/Facebook) ──
+GOOGLE_CLIENT_ID=408116621797-piud2v7s0haiisp1rhjent5fuag8pn98.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+
+FACEBOOK_CLIENT_ID=your-facebook-client-id
+FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
+
+MICROSOFT_CLIENT_ID=your-microsoft-client-id
+MICROSOFT_CLIENT_SECRET=your-microsoft-client-secret
+
+# ── Cloudflare R2 Object Storage ──
+R2_ENDPOINT=https://32844ba0ec32ffe9dbcc4150b44b1f8a.r2.cloudflarestorage.com
+R2_ACCESS_KEY=your_r2_access_key
+R2_SECRET_KEY=79078f5761fea78d8c2b7286bc6c1fc3
+R2_BUCKET_NAME=afrorealityapi
+R2_PUBLIC_URL_PREFIX=https://cdn.afroreality.com
+
+# ── Brevo Transactional Mailer REST API ──
+BREVO_API_KEY=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
+BREVO_SENDER_EMAIL=kgyan19lf@gmail.com
+BREVO_SENDER_NAME=AfroReality
+
+# ── Paystack Payment Provider Gateway ──
+PAYSTACK_SECRET_KEY=sk_live_9c20194ab0a81a3f63970543063f2445f55cda53

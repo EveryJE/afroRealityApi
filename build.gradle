@@ -44,6 +44,10 @@ dependencies {
     implementation platform('software.amazon.awssdk:bom:2.29.52')
     implementation 'software.amazon.awssdk:s3'
 
+    // --- Image processing (WebP conversion) ---
+    implementation 'com.sksamuel.scrimage:scrimage-core:4.1.3'
+    implementation 'com.sksamuel.scrimage:scrimage-webp:4.1.3'
+
     // --- Dev productivity ---
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
