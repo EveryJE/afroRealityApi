@@ -46,7 +46,7 @@ public class EventController {
         return ResponseEntity.ok(ApiResponse.ok(eventService.getEventBySlug(organizationId, slug)));
     }
 
-    @GetMapping("/public")
+    @GetMapping({"/public", "/public/"})
     public ResponseEntity<ApiResponse<List<EventResponse>>> getPublicEvents() {
         return ResponseEntity.ok(ApiResponse.ok(eventService.getPublicEvents()));
     }
