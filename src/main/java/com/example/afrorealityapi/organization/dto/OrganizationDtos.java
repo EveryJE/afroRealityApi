@@ -79,4 +79,45 @@ public class OrganizationDtos {
         private String email;
         private OrganizationRole role;
     }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class InvitationResponse {
+        private UUID id;
+        private UUID organizationId;
+        private String organizationName;
+        private String email;
+        private OrganizationRole role;
+        private String status;
+        private String token;
+        private OffsetDateTime expiresAt;
+        private OffsetDateTime createdAt;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class JoinRequestRequest {
+        private String message;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class JoinRequestResponse {
+        private UUID id;
+        private UUID organizationId;
+        private String organizationName;
+        private UUID userId;
+        private String userFullName;
+        private String userEmail;
+        private String message;
+        private String status;
+        private OffsetDateTime createdAt;
+        private OffsetDateTime resolvedAt;
+    }
 }

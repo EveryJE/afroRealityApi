@@ -71,6 +71,21 @@ public class BrevoApiEmailServiceImpl implements EmailService {
         sendEmail(toEmail, subject, htmlContent);
     }
 
+    @Override
+    public void sendOrganizationInvitation(String toEmail, String orgName, String inviteLink) {
+        String subject = "You've been invited to join " + orgName + " on AfroReality";
+        String htmlContent = "<div style='font-family: Arial, sans-serif; padding: 20px; color: #333;'>"
+                + "<h2 style='color: #4F46E5;'>Organization Invitation</h2>"
+                + "<p>You have been invited to join <strong>" + orgName + "</strong> on AfroReality.</p>"
+                + "<p>Click the link below to accept the invitation:</p>"
+                + "<p><a href='" + inviteLink + "' style='background: #4F46E5; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 6px; display: inline-block;'>Accept Invitation</a></p>"
+                + "<p style='margin-top: 15px; font-size: 12px; color: #6B7280;'>Or copy this link: " + inviteLink + "</p>"
+                + "<p style='margin-top: 20px; color: #6B7280;'>This invitation will expire in 48 hours.</p>"
+                + "</div>";
+
+        sendEmail(toEmail, subject, htmlContent);
+    }
+
     private void sendEmail(String toEmail, String subject, String htmlContent) {
         if (apiKey == null || apiKey.isBlank()) {
             log.warn("BREVO_API_KEY is missing. Logging email content to console.");

@@ -96,4 +96,7 @@ public class Profile extends BaseEntity {
     @Column(name = "is_verified_partner", nullable = false)
     @Builder.Default
     private boolean isVerifiedPartner = false;
+
+    @Column(name = "current_organization_id")
+    private UUID currentOrganizationId;
 }

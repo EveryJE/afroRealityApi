@@ -28,6 +28,7 @@ public class UserDtos {
         private boolean isVerifiedPartner;
         private boolean onboardingCompleted;
         private int onboardingStep;
+        private UUID currentOrganizationId;
         private OffsetDateTime createdAt;
     }
 

@@ -37,3 +37,4 @@ out/
 .vscode/
 .env
 render-env-template.txt
+uploads/

@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService {
                 .isVerifiedPartner(profile.isVerifiedPartner())
                 .onboardingCompleted(profile.isOnboardingCompleted())
                 .onboardingStep(profile.getOnboardingStep())
+                .currentOrganizationId(profile.getCurrentOrganizationId())
                 .createdAt(profile.getCreatedAt())
                 .build();
     }
