@@ -82,6 +82,8 @@ graalvmNative {
             }
             imageName = 'afrorealityapi'
             buildArgs.add('-O2')
+            buildArgs.add('--no-fallback')
+            buildArgs.add('--initialize-at-run-time=org.apache.commons.logging.LogFactory,org.apache.logging.log4j.util.OsgiServiceLocator,org.apache.logging.log4j.util.StackLocator')
         }
     }
 }
