@@ -6,9 +6,9 @@ spring:
       max-file-size: 5MB
       max-request-size: 5MB
   datasource:
-    url: ${SPRING_DB_URL}
-    username: ${SPRING_DB_USERNAME}
-    password: ${SPRING_DB_PASSWORD}
+    url: ${SPRING_DB_URL:jdbc:postgresql://localhost:5432/afroreality}
+    username: ${SPRING_DB_USERNAME:postgres}
+    password: ${SPRING_DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -21,26 +21,26 @@ spring:
     open-in-view: false
   security:
     user:
-      name: ${SPRING_SECURITY_USER_NAME}
-      password: ${SPRING_SECURITY_USER_PASSWORD}
+      name: ${SPRING_SECURITY_USER_NAME:admin}
+      password: ${SPRING_SECURITY_USER_PASSWORD:change-me}
     oauth2:
       client:
         registration:
           google:
-            client-id: ${GOOGLE_CLIENT_ID}
-            client-secret: ${GOOGLE_CLIENT_SECRET}
+            client-id: ${GOOGLE_CLIENT_ID:local-google-client-id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:local-google-client-secret}
             scope:
               - email
               - profile
           facebook:
-            client-id: ${FACEBOOK_CLIENT_ID:your-facebook-client-id}
-            client-secret: ${FACEBOOK_CLIENT_SECRET:your-facebook-client-secret}
+            client-id: ${FACEBOOK_CLIENT_ID:local-facebook-client-id}
+            client-secret: ${FACEBOOK_CLIENT_SECRET:local-facebook-client-secret}
             scope:
               - email
               - public_profile
           microsoft:
-            client-id: ${MICROSOFT_CLIENT_ID:your-microsoft-client-id}
-            client-secret: ${MICROSOFT_CLIENT_SECRET:your-microsoft-client-secret}
+            client-id: ${MICROSOFT_CLIENT_ID:local-microsoft-client-id}
+            client-secret: ${MICROSOFT_CLIENT_SECRET:local-microsoft-client-secret}
             scope:
               - openid
               - profile
@@ -54,25 +54,23 @@ spring:
             user-info-uri: https://graph.microsoft.com/v1.0/me
             user-name-attribute: displayName
 
-
-
 app:
-  base-url: ${BASE_URL}
-  frontend-url: ${FRONTEND_URL}
+  base-url: ${BASE_URL:http://localhost:8080}
+  frontend-url: ${FRONTEND_URL:http://localhost:3000}
   local-upload-path: /uploads
   jwt:
-    secret: ${JWT_SECRET}
+    secret: ${JWT_SECRET:change-me-please}
     expiration-ms: 86400000
     email-token-expiration-ms: 86400000
   brevo:
     api-key: ${BREVO_API_KEY:}
-    sender-email: ${BREVO_SENDER_EMAIL}
-    sender-name: ${BREVO_SENDER_NAME}
+    sender-email: ${BREVO_SENDER_EMAIL:noreply@example.com}
+    sender-name: ${BREVO_SENDER_NAME:AfroReality}
   paystack:
     secret-key: ${PAYSTACK_SECRET_KEY:}
   r2:
-    endpoint: ${R2_ENDPOINT}
-    access-key: ${R2_ACCESS_KEY}
-    secret-key: ${R2_SECRET_KEY}
-    bucket-name: ${R2_BUCKET_NAME}
-    public-url-prefix: ${R2_PUBLIC_URL_PREFIX}
+    endpoint: ${R2_ENDPOINT:http://localhost:9000}
+    access-key: ${R2_ACCESS_KEY:local-access-key}
+    secret-key: ${R2_SECRET_KEY:local-secret-key}
+    bucket-name: ${R2_BUCKET_NAME:afroreality}
+    public-url-prefix: ${R2_PUBLIC_URL_PREFIX:http://localhost:9000}

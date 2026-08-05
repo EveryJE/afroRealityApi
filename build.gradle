@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '4.1.0'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.graalvm.buildtools.native' version '0.10.5'
 }
 
 group = 'com.example'
@@ -65,9 +66,22 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
+    testRuntimeOnly 'com.h2database:h2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+graalvmNative {
+    binaries {
+        main {
+            javaLauncher = javaToolchains.launcherFor {
+                languageVersion = JavaLanguageVersion.of(17)
+            }
+            imageName = 'afrorealityapi'
+            buildArgs.add('-O2')
+        }
+    }
 }
