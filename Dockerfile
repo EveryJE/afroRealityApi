@@ -48,11 +48,12 @@ USER appuser
 EXPOSE 8080
 
 # Configure JVM for Render's 512MB free tier
+# Budget: 256MB heap + 128MB metaspace + ~100MB OS/threads = ~484MB
 ENTRYPOINT ["java", \
-  "-Xmx330m", \
-  "-Xms200m", \
+  "-Xmx256m", \
+  "-Xms180m", \
   "-XX:+UseSerialGC", \
-  "-XX:MaxMetaspaceSize=100m", \
+  "-XX:MaxMetaspaceSize=128m", \
   "-Xss512k", \
   "-Djava.security.egd=file:/dev/./urandom", \
   "-jar", "app.jar"]
