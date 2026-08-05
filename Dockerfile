@@ -47,5 +47,12 @@ USER appuser
 # Expose port (Render automatically routes web services via PORT env var)
 EXPOSE 8080
 
-# Configure production Java GC optimizations
-ENTRYPOINT ["java", "-XX:+UseG1GC", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
+# Configure JVM for Render's 512MB free tier
+ENTRYPOINT ["java", \
+  "-Xmx330m", \
+  "-Xms200m", \
+  "-XX:+UseSerialGC", \
+  "-XX:MaxMetaspaceSize=100m", \
+  "-Xss512k", \
+  "-Djava.security.egd=file:/dev/./urandom", \
+  "-jar", "app.jar"]
