@@ -15,7 +15,7 @@ public class HealthController {
 
     @GetMapping({"/api/v1/health", "/api/v1/health/", "/health", "/health/", "/ping", "/ping/"})
     public ResponseEntity<ApiResponse<Map<String, Object>>> healthCheck() {
-        log.info("Health check ping received — service is UP");
+        log.debug("Health check ping received — service is UP");
         Map<String, Object> data = Map.of(
                 "status", "UP",
                 "service", "afroRealityApi",
