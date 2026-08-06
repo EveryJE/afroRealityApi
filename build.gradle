@@ -76,6 +76,9 @@ tasks.named('test') {
 }
 
 graalvmNative {
+    metadataRepository {
+        enabled = true
+    }
     binaries {
         main {
             javaLauncher = javaToolchains.launcherFor {
